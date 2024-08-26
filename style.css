@@ -1,3 +1,4 @@
+
 body {
     margin: 0;
     height: 100vh;
@@ -13,7 +14,7 @@ body {
     width: 40em;
     height: 40em;
     position: relative;
-    perspective: 1000px; /* Add perspective to the container */
+    perspective: 1000px; 
 }
 
 .sun {
@@ -22,26 +23,15 @@ body {
     left: 15em;
     width: 10em;
     height: 10em;
-    background: radial-gradient(circle, yellow 50%, orange 100%);
+    background: radial-gradient(circle, #FFDD44 40%, #FF8800 60%, #FF4400 80%, transparent 100%);
     border-radius: 50%;
-    box-shadow: 0 0 2em rgba(255, 255, 255, 0.8), inset 0 0 0.5em rgba(255, 255, 255, 0.5);
-    transform-style: preserve-3d;
-    animation: rotate 10s infinite linear;
-}
-
-@keyframes rotate {
-    from {
-        transform: rotateX(0deg) rotateY(0deg);
-    }
-    to {
-        transform: rotateX(360deg) rotateY(360deg);
-    }
+    box-shadow: 0 0 60px #FF8800, 0 0 100px #FF4400, 0 0 140px #FF2200;
 }
 
 .earth, .moon {
     position: absolute;
     border-style: solid;
-    border-color: white transparent transparent transparent;
+    border-color: white transparent transparent transparent ;
     border-width: 0.1em 0.1em 0 0;
     border-radius: 50%;
 }
@@ -52,6 +42,7 @@ body {
     width: 30em;
     height: 30em;
     animation: orbit 36.5s linear infinite;
+    
 }
 
 .moon {
@@ -73,7 +64,7 @@ body {
     right: 2.8em;
     width: 3em;
     height: 3em;
-    background-color: rgb(89, 238, 193);
+    background: radial-gradient(circle at 30% 30%, #4CAF50 25%, #1565C0 60%, #0D47A1 80%, #1A237E 100%);
     box-shadow: 0 0 1em rgb(108, 146, 113);
 }
 
@@ -82,9 +73,43 @@ body {
     right: 0.2em;
     width: 1.2em;
     height: 1.2em;
-    background-color: silver;
+    background: radial-gradient(circle at 30% 30%, #9ba19b 25%, #868686 60%, #585959 80%, #616163 100%);
 }
 
 @keyframes orbit {
     to { transform: rotate(360deg); }
 }
+
+ /* Shining Stars */
+ .stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: -1; 
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 0 0.4em rgba(255, 255, 255, 0.8);
+    opacity: 0.7;
+    animation: shine 2s infinite alternate;
+}
+
+@keyframes shine {
+    0% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1.2);
+    }
+}
+
+ 
